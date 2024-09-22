@@ -20,4 +20,5 @@ The project is deployed on GitHub Pages. Access it [here](https://anumandlas.git
 ## Future Plans
 - Transition to React for a dynamic experience
 - Add more features and improve structure
+- Developing a more interactive chatbot by integrating new technologies, moving beyond our current reliance on Google API to enhance user engagement.
 
