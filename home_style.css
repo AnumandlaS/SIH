@@ -1,139 +1,226 @@
+/* General reset and global styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #a4cada;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #a4cada;
 }
 
 header, footer {
-    background-color: #007BFF;
-    padding: 10px 20px;
-    color: white;
-    width: 100%;
+  background-color: #007BFF;
+  padding: 10px 20px;
+  color: white;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; /* Space between header elements */
+  align-items: center; /* Center items vertically */
 }
 
 .header-left {
-    flex: 1; /* Ensures the left section takes available space */
+  display: flex;
+  align-items: center;
 }
 
-.header-right {
-    display: flex;
-    align-items: center; /* Center items vertically */
-} 
 .header-right ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 10px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
 }
 
 .header-right ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .header-right ul li a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
 .buttons {
-    display: flex;
-    gap: 40px;
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap in smaller screens */
+  justify-content: center; /* Center buttons */
+  gap: 20px;
 }
 
 .rectangle-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 60px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color:  #007BFF;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: background-color 0.3s;
 }
 
 .rectangle-btn:hover {
-    background-color: rgb(97, 147, 233);
+  background-color: rgb(97, 147, 233);
 }
 
 footer {
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
 }
-
 
 /* Hide class for toggling visibility */
 .hide {
-    display: none;
+  display: none;
+}
+
+/* Chatbot styles */
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.chatbot-btn {
+  width: 60px;
+  height: 60px;
+  background-color: #007BFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff; /* Change this to your desired color */
+}
+
+.chatbot-btn img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.chatbot-text {
+  color: white;
+  background-color: #0056b3;
+  font-size: 20px;
+}
+
+.chatbot-btn:hover {
+  background-color: #0056b3;
+}
+
+#chatbot-container {
+  position: fixed;
+  background-color: #0056b3;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For small screens like phones (max-width: 600px) */
+@media only screen and (max-width: 600px) {
+  .header-left p {
+      font-size: 18px;
   }
-  
-  .chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between the button and the text */
-    z-index: 1000; /* Ensure it appears above other content */
+
+  .header-right {
+      flex-direction: column;
   }
-  
-  /* Chatbot button styles */
+
+  .header-right ul {
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .header-right ul li a {
+      font-size: 14px;
+  }
+
+  .buttons {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .rectangle-btn {
+      width: 100%; /* Full width on small screens */
+      font-size: 14px;
+  }
+
   .chatbot-btn {
-    width: 60px;
-    height: 60px;
-    background-color: #007BFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 50px;
+      height: 50px;
   }
-  
+
   .chatbot-btn img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover; /* Ensures image covers the space without distortion */
+      width: 25px;
+      height: 25px;
   }
-  
-  /* Chatbot text styles */
-  .chatbot-text {
-    color:white;
-    background-color: #0056b3;
-    font-size: 20px;
-  } 
-  
-  /* Optional: Add hover effect */
-  .chatbot-btn:hover {
-    background-color: #0056b3;
+
+  #chatbot-container iframe {
+      width: 280px;
+      height: 360px;
   }
-  
-  #chatbot-container {
-    position: fixed;
-    background-color: #0056b3;
-    bottom: 80px; /* Adjust as needed */
-    right: 20px;
-    z-index: 1000; /* Ensure it appears above other content */
-    /* display: none; */
+}
+
+/* For medium-sized screens like tablets (600px - 900px) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .header-right ul {
+      gap: 15px;
   }
+
+  .header-right ul li a {
+      font-size: 16px;
+  }
+
+  .buttons {
+      flex-direction: row; /* Keep it as a row on medium screens */
+      gap: 30px;
+  }
+
+  .rectangle-btn {
+      width: 180px;
+      font-size: 15px;
+  }
+}
+
+/* For large screens (above 900px) */
+@media only screen and (min-width: 900px) {
+  .buttons {
+      flex-direction: row;
+      justify-content: center;
+      gap: 40px;
+  }
+
+  .rectangle-btn {
+      width: 200px;
+      font-size: 16px;
+  }
+}

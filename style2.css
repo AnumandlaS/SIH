@@ -1,79 +1,131 @@
+/* General body styling */
 body {
-    font-family: "Arial", sans-serif;
-    background-color: #b38a58; /* Light beige background */
-    text-align: center;
-    color: #0d1f22;
-  }
-  
-  h1 {
-    margin-top: 20px;
-    color: #0d1f22;
-    font-family: serif;
-    font-size: 75px;
-  }
-  
+  font-family: "Arial", sans-serif;
+  background-color: #b38a58; /* Light beige background */
+  text-align: center;
+  color: #0d1f22;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title Styling */
+h1 {
+  margin-top: 20px;
+  color: #0d1f22;
+  font-family: serif;
+  font-size: 6vw; /* Scales with viewport width */
+}
+
+/* Game Board Styling */
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 cells per row */
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 30px auto;
+  width: 90vw; /* Take 90% of the screen width */
+  max-width: 500px; /* Limit width for larger screens */
+}
+
+/* Individual Cell Styling */
+.cell {
+  background-color: #6f732f; /* Yellow cells */
+  border: 2px solid #264653;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #460000;
+  font-weight: bold;
+  font-size: calc(10px + 2vw); /* Dynamically scale font size */
+  aspect-ratio: 1 / 1; /* Ensures square cells */
+}
+
+.cell.highlight {
+  background-color: #264027; /* Highlighted color for active position */
+  color: white;
+}
+
+#diceRoll {
+  margin: 20px;
+}
+
+button {
+  background-color: #0d1f22;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: calc(10px + 1.5vw); /* Adjust button size for all screens */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #264027; /* Green hover */
+}
+
+#questionArea {
+  margin-top: 20px;
+}
+
+#answerInput {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 60vw; /* Responsive input size */
+  max-width: 300px;
+}
+
+#resultMessage {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #264653;
+  font-size: calc(14px + 1.2vw); /* Responsive text size */
+}
+
+#questionText {
+  color: #460000;
+  font-size: calc(14px + 1.5vw); /* Adjust size for mobile */
+  font-weight: bold;
+}
+
+/* Media Queries for responsive behavior on smaller screens */
+@media (max-width: 768px) {
+  /* For tablets and small laptops */
   #gameBoard {
-    display: grid;
-    grid-template-columns: repeat(5, 80px); /* 5 cells per row */
-    grid-template-rows: repeat(5, 80px); /* 5 rows */
-    grid-gap: 10px;
-    justify-content: center;
-    margin: 30px auto;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Dynamic grid for smaller screens */
   }
-  
-  .cell {
-    border: 2px solid #264653;
-    border-radius: 10%;
-    background-color: #6f732f; /* Yellow cells */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: #460000;
-    font-weight: bold;
-    height: 80px;
+
+  h1 {
+    font-size: 8vw; /* Adjust heading for tablets */
   }
-  
-  .cell.highlight {
-    background-color: #264027; /* Highlighted color for active position */
-    color: white;
-  }
-  
-  #diceRoll {
-    margin: 20px;
-  }
-  
+
   button {
-    background-color: #0d1f22;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+    font-size: calc(10px + 2.5vw); /* Adjust button size */
   }
-  
-  button:hover {
-    background-color: #264027; /* Green hover */
+
+  .cell {
+    font-size: calc(8px + 3vw); /* Adjust text size */
   }
-  
-  #questionArea {
-    margin-top: 20px;
-  }
-  
+
   #answerInput {
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 200px;
+    width: 80vw; /* Larger input for tablets */
   }
-  
-  #resultMessage {
-    font-weight: bold;
-    margin-top: 10px;
-    color: #264653;
+}
+
+@media (max-width: 480px) {
+  /* For mobile phones */
+  h1 {
+    font-size: 10vw; /* Smaller heading */
   }
-  
-  #questionText {
-    color: #460000; /* Dark green color */
-    font-size: 18px;
-    font-weight: bold;
+
+  button {
+    font-size: calc(8px + 3vw); /* Larger button */
   }
+
+  .cell {
+    font-size: calc(8px + 4vw); /* Adjust text size */
+  }
+
+  #answerInput {
+    width: 90vw; /* Full width input */
+  }
+}
